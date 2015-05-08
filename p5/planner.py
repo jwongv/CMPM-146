@@ -127,18 +127,20 @@ initial_state = make_initial_state(Crafting['Initial'])
 is_goal = make_goal_checker(Crafting['Goal'])
 
 def heuristic(state):
-	if (state[0] > 1 or state[1] > 1 or state[2] > 1 or state[4] > 1 or state[6] > 1 or state[7] > 1 or state[8] > 1 or state[12] > 1 or state[13] > 1 or state[14] > 1 or state[15] > 1 or state[16] > 1):
-		return 1000
-	if (state[11] > 6):
-		return 1000
+	if (state[0] > 1 or state[1] > 1 or state[4] > 1 or state[6] > 1 or state[7] > 1 or state[12] > 1 or state[13] > 1 or state[15] > 1 or state[16] > 1):
+		return 1000000000
+	if (state [2] > 1 or state [8] > 1 or state [14]):
+		return 100000
+	if (state[11] > 5):
+		return 100000
 	if (state[9] > 7):
-		return 1000
+		return 100000
 	if (state[5] > 6):
-		return 1000
+		return 100000
 	if (state[3] > 8):
-		return 1000
-	if (state[10] > 16):
-		return 1000
+		return 100000
+	if (state[10] > 32):
+		return 100000
 	return 0
 
 Recipe = namedtuple('Recipe',['name','check','effect','cost'])
